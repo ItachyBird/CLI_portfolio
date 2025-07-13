@@ -42,12 +42,93 @@ Available Commands:
   sudo [cmd]
     → Directly open a section (whoami, projects, techstack)
 `,
-};
+  whoami: `Soumyadip Debnath:~$ echo "Hi, I’m Soumyadip Debnath."
+
+> A creative full-stack developer with a passion for 3D web, clean UI, and terminal aesthetics.
+> Currently open to job opportunities – eager to bring ideas to life through code.
+> Loves tinkering with AI, shaders, animations, and expressive interfaces.
+`,
+projects: `Soumyadip@portfolio:~$ projects
+
+Terminal Portfolio
+  → Interactive terminal-style portfolio with command input interface
+
+Flight Route Optimization
+  → AI-powered flight planner using ACO, GA, PPO & weather integration
+
+Encrypted Chat App
+  → Secure real-time chat with AES encryption and multimedia support
+
+Cloud Kitchen System
+  → Real-time kitchen/order dashboard built on MERN stack with sockets
+
+Doctor Booking System
+  → Appointment platform with auth and live doctor-patient chat
+
+Spacefolio
+  → 3D space-themed animated portfolio with futuristic visuals
+
+OTT Streaming Platform
+  → Full-stack SSR streaming app with Spring Boot & REST APIs
+
+SKYCAST Weather App
+  → Weather app with live forecast, animations, and location detection
+
+Gesture Detection (ASL)
+  → AI-based ASL interpreter using webcam and deep learning
+
+Fashion Landing Page
+  → Scroll-animated landing page tailored for fashion brands
+
+Apple Homepage Clone
+  → Apple.com clone with pixel-perfect layout & smooth animations
+`,
+
+
+  techstack: `Soumyadip@portfolio:~$ techstack
+
+Languages:
+  → Java
+  → C
+  → Python (basic)
+  → Solidity (basic)
+
+Web Technologies:
+  → HTML
+  → CSS
+  → JavaScript
+  → React.js
+  → Node.js
+  → Express.js
+  → MongoDB
+
+Frameworks & Libraries:
+  → Spring Boot
+  → Vite
+  → Tailwind CSS
+  → GSAP
+
+Other Tools:
+  → Git
+  → Linux
+  → TensorFlow
+  → Keras
+  → Embedded Systems
+  → Blender
+  → Three.js
+
+Core Concepts:
+  → Data Structures & Algorithms
+  → DBMS
+  → Operating Systems
+`,
+
+};  
 
 const commandLinks = {
-  whoami: { label: 'Learn More About Me', path: '/about' },
-  projects: { label: 'View Projects', path: '/projects' },
-  techstack: { label: 'Explore Tech Stack', path: '/techstack' },
+  whoami: { label: 'Learn More About Me ->', path: '/about' },
+  projects: { label: 'View Projects ->', path: '/projects' },
+  techstack: { label: 'Explore Tech Stack ->', path: '/techstack' },
 };
 
 const resumeLink = {
@@ -246,14 +327,18 @@ export default function MainTerminal() {
       return;
     }
 
-    const output = commands[lower] || `Command not found: ${cmd}`;
-    setHistory((prev) => [...prev, '']);
-    await typeText(output);
+    if (commands[lower]) {
+      setHistory((prev) => [...prev, '']);
+      await typeText(commands[lower]);
 
-    if (commandLinks[lower]) {
-      const { label, path } = commandLinks[lower];
-      setHistory((prev) => [...prev, { type: 'link', label, path }, '']);
+      if (commandLinks[lower]) {
+        const { label, path } = commandLinks[lower];
+        setHistory((prev) => [...prev, { type: 'link', label, path }, '']);
+      }
+      return;
     }
+
+    setHistory((prev) => [...prev, `Command not found: ${cmd}`, '']);
   };
 
   const handleSubmit = async (e) => {
@@ -275,11 +360,11 @@ export default function MainTerminal() {
 
   return (
     <div
-      className="terminal-container-wallpaper"
+      className="terminal-container-wallpaper crt-effect"
       style={{ backgroundImage: `url(${themeConfig.wallpaper})` }}
       data-terminal-theme={themeColor}
     >
-      <div className="terminal-container crt-effect" ref={containerRef}>
+      <div className="terminal-container" ref={containerRef}>
         <div className="terminal-content">
           {history.map((entry, i) => {
             if (typeof entry === 'string') {
