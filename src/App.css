@@ -1,0 +1,18 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: var(--terminal-color, #00ff00);  /* Default text color (fallback green) */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  background: transparent !important; /* Force transparent background */
+  color: inherit; /* Force all elements to inherit the terminal color */
+  border-color: inherit; /* If any border exists, use theme color */
+}
+
+a, .read-the-docs, .card, .logo {
+  color: inherit;  /* Remove their specific colors and use the theme */
+}

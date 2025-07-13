@@ -1,0 +1,105 @@
+/* Container for the falling text */
+.falling-text-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid; /* Border color will come from theme */
+  box-shadow: 0 0 10px currentColor; /* Glow based on text color */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Theme-based border color and glow */
+[data-terminal-theme='green'] .falling-text-container {
+  color: #00ff00;
+  border-color: #00ff00;
+  box-shadow: 0 0 12px #00ff00;
+}
+
+[data-terminal-theme='blue'] .falling-text-container {
+  color: #00bfff;
+  border-color: #00bfff;
+  box-shadow: 0 0 12px #00bfff;
+}
+
+[data-terminal-theme='yellow'] .falling-text-container {
+  color: #ffff66;
+  border-color: #ffff66;
+  box-shadow: 0 0 12px #ffff66;
+}
+
+[data-terminal-theme='red'] .falling-text-container {
+  color: #ff4c4c;
+  border-color: #ff4c4c;
+  box-shadow: 0 0 12px #ff4c4c;
+}
+
+/* Target wrapper */
+.falling-text-target {
+  display: inline-block;
+}
+
+/* Individual draggable word */
+.word {
+  display: inline-block;
+  margin: 0 2px;
+  user-select: none;
+  pointer-events: all;
+  color: inherit; /* Inherit color from theme */
+}
+
+/* Highlighted word */
+.highlighted {
+  color: cyan;
+  font-weight: bold;
+}
+
+/* Canvas background */
+.falling-text-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+
+.icon-ball {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 255, 0, 0.15);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: currentColor;
+  user-select: none;
+  pointer-events: all;
+  transition: background-color 0.3s ease;
+}
+
+.icon-ball:hover {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.icon-tooltip {
+  position: absolute;
+  bottom: 110%;
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.icon-ball:hover .icon-tooltip {
+  opacity: 1;
+}
+

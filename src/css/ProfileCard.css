@@ -1,0 +1,96 @@
+/* ProfileCard.css */
+
+.dual-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  margin: auto;
+  background-color: #fff;
+}
+
+.left-card {
+  flex: 1 1 250px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.right-card {
+  flex: 2 1 300px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+
+.profile-title {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.profile-handle {
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+.profile-status {
+  color: #00aa55;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.contact-button {
+  width: fit-content;
+  padding: 0.5rem 1.2rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .dual-card-container {
+    flex-direction: column;
+  }
+
+  .right-card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}

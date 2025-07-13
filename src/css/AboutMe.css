@@ -1,0 +1,215 @@
+/* Outer wrapper */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: black;
+  overflow-y: hidden;
+}
+
+/* Wrapper */
+.aboutme-wrapper {
+  background-color: transparent;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Content */
+.aboutme-content {
+  background-color: transparent;
+  width: 98vw;
+  max-width: 1200px;
+  padding: 12px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  width: 100%;
+  height: 800px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(14, 1fr);
+  gap: 8px;
+}
+
+/* Grid items */
+.item {
+  font-size: 1.2rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  color: inherit;
+}
+
+/* Grid positions */
+.item-0 { grid-column: 1; grid-row: 1 / span 9; }
+.item-1 { grid-column: 2 / span 2; grid-row: 1 / span 9; }
+.item-2 { grid-column: 1 / span 3; grid-row: 10; }
+.item-3 { grid-column: 1; grid-row: 11 / span 2; }
+.item-4 { grid-column: 3; grid-row: 11 / span 2; }
+.item-5 { grid-column: 1; grid-row: 13 / span 2; }
+.item-6 { grid-column: 3; grid-row: 13 / span 2; }
+.item-7 { grid-column: 2; grid-row: 11 / span 4; }
+
+/* Image */
+.profile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* Info box */
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-item {
+  font-size: 0.9rem;
+  word-break: break-word;
+  line-height: 1.4;
+  color: inherit;
+}
+
+/* Socials */
+.social-icons {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 1.5rem;
+}
+
+.social-icons a:hover {
+  color: #00acee;
+}
+
+/* About Terminal Headline */
+.newterminalabt {
+  font-size: 12px;
+  color: currentColor;
+  margin-bottom: 1rem;
+}
+
+/* Desktop outline */
+.item-1 {
+  border: 1px solid currentColor;
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+/* Responsive grid */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    height: auto;
+  }
+
+  .item {
+    height: auto;
+    min-height: 100px;
+  }
+
+  .item-0,
+  .item-1,
+  .item-2,
+  .item-3,
+  .item-4,
+  .item-5,
+  .item-6,
+  .item-7 {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
+
+/* Wallpaper background */
+.newterminal-wallpaper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.newterminal-wallpaper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+/* Main terminal overlay */
+.newterminal {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  overflow-y: overlay;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  
+}
+
+/* Theme support for all colors */
+[data-terminal-theme='green'],
+[data-terminal-theme='blue'],
+[data-terminal-theme='yellow'],
+[data-terminal-theme='red'],
+[data-terminal-theme='purple'],
+[data-terminal-theme='orange'],
+[data-terminal-theme='aqua'],
+[data-terminal-theme='amber'],
+[data-terminal-theme='pink'],
+[data-terminal-theme='teal'],
+[data-terminal-theme='white'] {
+  --terminal-color: currentColor;
+}
+
+[data-terminal-theme='green'] { --terminal-color: #00ff00; }
+[data-terminal-theme='blue'] { --terminal-color: #00bfff; }
+[data-terminal-theme='yellow'] { --terminal-color: #ffff66; }
+[data-terminal-theme='red'] { --terminal-color: #ff4c4c; }
+[data-terminal-theme='purple'] { --terminal-color: #b200ff; }
+[data-terminal-theme='orange'] { --terminal-color: #ffae42; }
+[data-terminal-theme='aqua'] { --terminal-color: #00ffff; }
+[data-terminal-theme='amber'] { --terminal-color: #ffcc00; }
+[data-terminal-theme='pink'] { --terminal-color: #ff66cc; }
+[data-terminal-theme='teal'] { --terminal-color: #00ffcc; }
+[data-terminal-theme='white'] { --terminal-color: #f8f8ff; }
+
+/* Apply color to all text & borders using variable */
+.item,
+.info-item,
+.social-icons a,
+.newterminalabt {
+  color: var(--terminal-color);
+}
+.item-1 {
+  border-color: var(--terminal-color);
+}
