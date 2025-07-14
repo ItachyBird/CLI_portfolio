@@ -173,7 +173,7 @@ html, body {
   overflow-y: overlay;
   overflow-x: hidden;
   box-sizing: border-box;
-  
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Theme support for all colors */

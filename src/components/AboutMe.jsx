@@ -42,7 +42,7 @@ export default function AboutMe() {
                 ref={imageRef}
                 src="/me.mp4"
                 alt="Profile"
-                className="profile-image"
+                className="profile-image crt-effect"
                  autoPlay
     muted
     loop
@@ -205,7 +205,7 @@ export default function AboutMe() {
  <div
               className="item item-7"
               style={{
-                backgroundImage: `url(/bg5.jpg)`,
+                backgroundImage: `url(/photoimage.png)`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 display: 'flex',
@@ -217,7 +217,7 @@ export default function AboutMe() {
             >
               <div style={{ padding: '8px 12px', borderRadius: '8px' }}>
            
-                <div style={{ fontSize: '0.9rem' }}>dodge </div>
+                <div style={{ fontSize: '0.9rem' }}>My recent Blender Project </div>
               </div>
             </div>
 
