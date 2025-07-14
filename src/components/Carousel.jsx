@@ -169,7 +169,7 @@ export default function Carousel({
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    View Project <FiExternalLink />
+                    Github <FiExternalLink />
                   </a>
                   <div className="carousel-date">{item.content.date}</div>
                 </div>
