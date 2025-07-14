@@ -43,7 +43,7 @@
   position: relative;
   z-index: 1;
   color: var(--terminal-color);
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.6);
   transition: color 0.3s ease;
 }
 

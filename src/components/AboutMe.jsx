@@ -55,7 +55,7 @@ export default function AboutMe() {
               <div className="info-container">
                 {[  'Name: Soumyadip Debnath',
                 'Username: ITACHYBIRD',
-  'Age: 20',
+  'Age: 22',
   
   'Profession: NULL :(',
   'School: LIONS CALCUTTA (GREATER) VIDYA MANDIR',
@@ -65,8 +65,8 @@ export default function AboutMe() {
   'Hobbies: Coding, Gaming,watching Anime,Digital Art',
   'Personality Type: INTP',
 
-  'Quote: "Code is poetry."',
-  'Email: soumyadip@example.com',
+  'Quote: "WaKe Up To ReAlItY.Nothing Ever Goes As Planned In This Accursed World."',
+  'Email: soumyadipdebnth007@gmail.com',
   
   `Last Login: ${new Date().toDateString()}`,
                 ].map((text, index) => (
