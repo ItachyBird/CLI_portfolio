@@ -67,7 +67,7 @@ export default function AboutMe() {
                     'Personality Type: INTP',
                     'Quote: "WaKe Up To ReAlItY. Nothing Ever Goes As Planned In This Accursed World."',
                     'Email: soumyadipdebnth007@gmail.com',
-                    'Give a Star :): ⭐ https://github.com/ItachyBird',
+                    'Give a Star :): ⭐ https://github.com/ItachyBird/CLI_portfolio',
                   ].map((text, index) => {
                     // Email clickable
                     if (text.startsWith('Email:')) {
@@ -99,7 +99,7 @@ export default function AboutMe() {
                         >
                           Give a Star ....:{" "}
                           <a
-                            href="https://github.com/ItachyBird"
+                            href="https://github.com/ItachyBird/CLI_portfolio"
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{ textDecoration: "none", fontSize: "1.2rem" }}
