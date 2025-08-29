@@ -1,15 +1,16 @@
 import React, { useEffect, useRef } from 'react';
 import '../css/MainTerminal.css';
 import '../css/AboutMe.css';
-import { useTerminalTheme } from './TerminalThemeContext'; 
+import { useTerminalTheme } from './TerminalThemeContext';
 import { FaGithub, FaLinkedin, FaInstagram, FaFacebookF, FaTwitter, FaFilePdf } from 'react-icons/fa';
 import { PowerGlitch } from 'powerglitch';
+import { TbStarFilled } from "react-icons/tb";
 
 export default function AboutMe() {
   const imageRef = useRef();
   const infoRefs = useRef([]);
   const iconRefs = useRef([]);
-  const { themeColor, themeConfig } = useTerminalTheme();  
+  const { themeColor, themeConfig } = useTerminalTheme();
 
   useEffect(() => {
     PowerGlitch.glitch(imageRef.current, { playMode: 'always', timing: { duration: 3000, iterations: Infinity } });
@@ -66,16 +67,60 @@ export default function AboutMe() {
                     'Personality Type: INTP',
                     'Quote: "WaKe Up To ReAlItY. Nothing Ever Goes As Planned In This Accursed World."',
                     'Email: soumyadipdebnth007@gmail.com',
-                    'GitHub: ⭐ https://github.com/ItachyBird',
-                  ].map((text, index) => (
-                    <div
-                      key={index}
-                      className="info-item"
-                      ref={(el) => (infoRefs.current[index] = el)}
-                    >
-                      {text}
-                    </div>
-                  ))}
+                    'Give a Star :): ⭐ https://github.com/ItachyBird',
+                  ].map((text, index) => {
+                    // Email clickable
+                    if (text.startsWith('Email:')) {
+                      const email = text.replace('Email: ', '');
+                      return (
+                        <div
+                          key={index}
+                          className="info-item"
+                          ref={(el) => (infoRefs.current[index] = el)}
+                        >
+                          Email:{" "}
+                          <a
+                            href={`mailto:${email}`}
+                            style={{ color: "#00acee", textDecoration: "underline" }}
+                          >
+                            {email}
+                          </a>
+                        </div>
+                      );
+                    }
+
+
+                    if (text.startsWith('Give a Star :):')) {
+                      return (
+                        <div
+                          key={index}
+                          className="info-item"
+                          ref={(el) => (infoRefs.current[index] = el)}
+                        >
+                          Give a Star ....:{" "}
+                          <a
+                            href="https://github.com/ItachyBird"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "none", fontSize: "1.2rem" }}
+                          >
+                            <TbStarFilled color="yellow" />
+                          </a>
+                        </div>
+                      );
+                    }
+
+                    // default (normal text)
+                    return (
+                      <div
+                        key={index}
+                        className="info-item"
+                        ref={(el) => (infoRefs.current[index] = el)}
+                      >
+                        {text}
+                      </div>
+                    );
+                  })}
 
                   <a
                     href="/SoumyadipDebnath.pdf"
