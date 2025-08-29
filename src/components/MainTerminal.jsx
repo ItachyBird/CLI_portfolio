@@ -190,6 +190,7 @@ export default function MainTerminal() {
         '[BOOT] Environment Variables OK',
         '[BOOT] Portfolio OS Ready.',
         '',
+        'Soumyadip@portfolio:~$ Add a star to the github if you like this portfolio',
         'Soumyadip@portfolio:~$ Welcome. Type "--help" for available commands.',
       ];
 
